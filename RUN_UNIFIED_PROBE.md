@@ -19,7 +19,7 @@ silently use a newer checkpoint.
 ## 1. Clone
 
 ```bash
-git clone --recurse-submodules git@github.com:VentusAislant/mask_temporal_probe.git
+git clone --recurse-submodules git@github.com:suntea233/mask_temporal_probe.git
 cd mask_temporal_probe
 git submodule update --init --recursive
 test "$(git -C vendor/LLaDA rev-parse HEAD)" = \
