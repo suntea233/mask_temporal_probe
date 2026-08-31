@@ -1,0 +1,134 @@
+{
+  "mode": "debug",
+  "start": 0,
+  "count": 5,
+  "completed": 5,
+  "all_passed": true,
+  "samples": [
+    {
+      "reference_equals_followup_traced": true,
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_shuffle_norm_max_abs_error": 6.866455078125e-05,
+      "random_shuffle_norm_max_relative_error": 1.0133333772444462e-06,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 0,
+      "cpu_rng_unchanged": true,
+      "cuda_rng_unchanged": true,
+      "shuffle_different_position": true,
+      "history_windows_valid": true,
+      "geometry_complete": true,
+      "passed": true
+    },
+    {
+      "reference_equals_followup_traced": true,
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_shuffle_norm_max_abs_error": 0.0001068115234375,
+      "random_shuffle_norm_max_relative_error": 8.833631188654296e-07,
+      "projection_layers": 32,
+      "probe_records": 72,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 1,
+      "cpu_rng_unchanged": true,
+      "cuda_rng_unchanged": true,
+      "shuffle_different_position": true,
+      "history_windows_valid": true,
+      "geometry_complete": true,
+      "passed": true
+    },
+    {
+      "reference_equals_followup_traced": true,
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_shuffle_norm_max_abs_error": 4.57763671875e-05,
+      "random_shuffle_norm_max_relative_error": 1.4497047928311971e-06,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 2,
+      "cpu_rng_unchanged": true,
+      "cuda_rng_unchanged": true,
+      "shuffle_different_position": true,
+      "history_windows_valid": true,
+      "geometry_complete": true,
+      "passed": true
+    },
+    {
+      "reference_equals_followup_traced": true,
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_shuffle_norm_max_abs_error": 7.62939453125e-05,
+      "random_shuffle_norm_max_relative_error": 1.0388700861098636e-06,
+      "projection_layers": 32,
+      "probe_records": 72,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 3,
+      "cpu_rng_unchanged": true,
+      "cuda_rng_unchanged": true,
+      "shuffle_different_position": true,
+      "history_windows_valid": true,
+      "geometry_complete": true,
+      "passed": true
+    },
+    {
+      "reference_equals_followup_traced": true,
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_shuffle_norm_max_abs_error": 5.340576171875e-05,
+      "random_shuffle_norm_max_relative_error": 1.3523848901822897e-06,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 4,
+      "cpu_rng_unchanged": true,
+      "cuda_rng_unchanged": true,
+      "shuffle_different_position": true,
+      "history_windows_valid": true,
+      "geometry_complete": true,
+      "passed": true
+    }
+  ],
+  "config": {
+    "model_id": "GSAI-ML/LLaDA-8B-Instruct",
+    "model_revision": "08b83a6feb34df1a6011b80c3c00c7563e963b07",
+    "dataset_id": "gsm8k",
+    "dataset_revision": "740312add88f781978c0658806c59bc2815b9866",
+    "dataset_config": "main",
+    "split": "test",
+    "samples": 200,
+    "steps": 128,
+    "gen_length": 256,
+    "block_length": 32,
+    "temperature": 0.0,
+    "cfg_scale": 0.0,
+    "remasking": "low_confidence",
+    "mask_id": 126336,
+    "history": 4,
+    "alpha": 0.25,
+    "n_mask": 4,
+    "progress_fractions": [
+      0.25,
+      0.5,
+      0.75
+    ],
+    "seed": 20260827
+  }
+}

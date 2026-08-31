@@ -1,0 +1,2034 @@
+{
+  "mode": "formal",
+  "requested_samples": [
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131,
+    132,
+    133,
+    134,
+    135,
+    136,
+    137,
+    138,
+    139,
+    140,
+    141,
+    142,
+    143,
+    144,
+    145,
+    146,
+    147,
+    148,
+    149,
+    150,
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160,
+    161,
+    162,
+    163,
+    164,
+    165,
+    166,
+    167,
+    168,
+    169,
+    170,
+    171,
+    172,
+    173,
+    174,
+    175,
+    176,
+    177,
+    178,
+    179,
+    180,
+    181,
+    182,
+    183,
+    184,
+    185,
+    186,
+    187,
+    188,
+    189,
+    190,
+    191,
+    192,
+    193,
+    194,
+    195,
+    196,
+    197,
+    198,
+    199
+  ],
+  "completed": 100,
+  "all_passed": true,
+  "samples": [
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 100,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 1.52587890625e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 101,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 102,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 103,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 104,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 1.52587890625e-05,
+      "projection_layers": 32,
+      "probe_records": 72,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 105,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 3.0517578125e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 106,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 107,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 84,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 108,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 109,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 1.52587890625e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 110,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 3.0517578125e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 111,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 112,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 113,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 3.0517578125e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 114,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 3.0517578125e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 115,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 84,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 116,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 3.0517578125e-05,
+      "projection_layers": 32,
+      "probe_records": 72,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 117,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 1.52587890625e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 118,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 4.57763671875e-05,
+      "projection_layers": 32,
+      "probe_records": 84,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 119,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 1.52587890625e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 120,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 121,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 1.52587890625e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 122,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 123,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 124,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 3.0517578125e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 125,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 4.57763671875e-05,
+      "projection_layers": 32,
+      "probe_records": 72,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 126,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 84,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 127,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 128,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 129,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 130,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 131,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 132,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 133,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 3.0517578125e-05,
+      "projection_layers": 32,
+      "probe_records": 72,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 134,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 1.52587890625e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 135,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 136,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 137,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 3.0517578125e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 138,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 139,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 140,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 141,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 142,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 143,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 144,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 3.0517578125e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 145,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 146,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 147,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 148,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 3.0517578125e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 149,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 3.0517578125e-05,
+      "projection_layers": 32,
+      "probe_records": 72,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 150,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 151,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 84,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 152,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 153,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 154,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 155,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 3.0517578125e-05,
+      "projection_layers": 32,
+      "probe_records": 84,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 156,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 157,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 158,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 159,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 3.0517578125e-05,
+      "projection_layers": 32,
+      "probe_records": 72,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 160,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 1.9073486328125e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 161,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 3.0517578125e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 162,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 163,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 3.0517578125e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 164,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 165,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 3.0517578125e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 166,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 1.52587890625e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 167,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 3.0517578125e-05,
+      "projection_layers": 32,
+      "probe_records": 48,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 168,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 169,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 1.52587890625e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 170,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 171,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 172,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 173,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 174,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 3.0517578125e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 175,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 176,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 177,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 1.9073486328125e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 178,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 1.52587890625e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 179,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 180,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 181,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 84,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 182,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 183,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 3.0517578125e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 184,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 185,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 3.0517578125e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 186,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 187,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 188,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 189,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 1.52587890625e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 190,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 3.0517578125e-05,
+      "projection_layers": 32,
+      "probe_records": 72,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 191,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 192,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 193,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 60,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 194,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 195,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 3.0517578125e-05,
+      "projection_layers": 32,
+      "probe_records": 72,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 196,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 197,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 2.288818359375e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 198,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    },
+    {
+      "vanilla_probe_max_abs_logit_error": 0.0,
+      "random_norm_max_abs_error": 3.0517578125e-05,
+      "projection_layers": 32,
+      "probe_records": 96,
+      "schedule": {
+        "5": "25%",
+        "8": "50%",
+        "12": "75%"
+      },
+      "sample_id": 199,
+      "official_equals_traced": true,
+      "cpu_rng_unchanged_by_traced_probe": true,
+      "cuda_rng_unchanged_by_traced_probe": true,
+      "history_windows_valid": true,
+      "shuffle_different_position": true,
+      "same_block_positions": true,
+      "passed": true
+    }
+  ],
+  "config": {
+    "model_id": "GSAI-ML/LLaDA-8B-Instruct",
+    "model_revision": "08b83a6feb34df1a6011b80c3c00c7563e963b07",
+    "dataset_id": "gsm8k",
+    "dataset_revision": "740312add88f781978c0658806c59bc2815b9866",
+    "dataset_config": "main",
+    "split": "test",
+    "samples": 200,
+    "steps": 128,
+    "gen_length": 256,
+    "block_length": 32,
+    "temperature": 0.0,
+    "cfg_scale": 0.0,
+    "remasking": "low_confidence",
+    "mask_id": 126336,
+    "history": 4,
+    "alpha": 0.25,
+    "n_mask": 4,
+    "progress_fractions": [
+      0.25,
+      0.5,
+      0.75
+    ],
+    "seed": 20260827
+  }
+}

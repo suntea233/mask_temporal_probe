@@ -1,0 +1,758 @@
+EXPLORATORY SUBGROUP ANALYSIS
+=============================
+
+No difficulty, instability, entropy, or drift subgroup shows a clear positive Real Hidden-History mean effect.
+Negative Real effects become larger in high-entropy, changing-top1, and high-drift observations.
+Logit History is slightly positive only when the future target was already top-1 at t-4; this motivates a directionality/sharpening control rather than another hidden-memory method.
+
+Subgroups are descriptive hypothesis generation; no confirmatory claim is based on them.
+
+{
+  "status": "complete",
+  "exploratory": true,
+  "multiple_comparisons_warning": "Subgroups are descriptive hypothesis generation; no confirmatory claim is based on them.",
+  "quartile_thresholds": {
+    "vanilla_future_target_logp": [
+      -0.30887629091739655,
+      -0.02406168542802334,
+      -0.0004363895859569311
+    ],
+    "vanilla_entropy": [
+      0.004721620352938771,
+      0.1423526257276535,
+      0.71565380692482
+    ],
+    "kv_drift": [
+      8.471526385634206,
+      17.337500799447298,
+      28.60608530289028
+    ]
+  },
+  "groups": {
+    "vanilla_hit": {
+      "n": 17158,
+      "samples": 200,
+      "real": {
+        "mean_delta_logp": -0.011143975363757296,
+        "median_delta_logp": -9.581400809111074e-05,
+        "percent_positive": 29.700431285697633,
+        "cluster_bootstrap_95_ci": [
+          -0.012511757999451844,
+          -0.009827377304807731
+        ]
+      },
+      "shuffle": {
+        "mean_delta_logp": -0.034079260496725286,
+        "median_delta_logp": -0.0008757156174397096,
+        "percent_positive": 24.111201771768272,
+        "cluster_bootstrap_95_ci": [
+          -0.037111529543682006,
+          -0.03117303698327344
+        ]
+      },
+      "random": {
+        "mean_delta_logp": -0.0004473811369253531,
+        "median_delta_logp": -2.3840948415454477e-07,
+        "percent_positive": 46.43315071686677,
+        "cluster_bootstrap_95_ci": [
+          -0.0007600291589247827,
+          -0.00014357306162092478
+        ]
+      },
+      "logit_history": {
+        "mean_delta_logp": -0.01452746137018515,
+        "median_delta_logp": -0.0006219574497663416,
+        "percent_positive": 18.3529548898473,
+        "cluster_bootstrap_95_ci": [
+          -0.016112614927095904,
+          -0.013050104640528226
+        ]
+      }
+    },
+    "vanilla_miss": {
+      "n": 1217,
+      "samples": 196,
+      "real": {
+        "mean_delta_logp": -0.01467189136948517,
+        "median_delta_logp": -0.00022792816162109375,
+        "percent_positive": 48.06902218570255,
+        "cluster_bootstrap_95_ci": [
+          -0.032697857017802805,
+          0.0033854493426136584
+        ]
+      },
+      "shuffle": {
+        "mean_delta_logp": -0.04162356381891613,
+        "median_delta_logp": -0.03214728832244873,
+        "percent_positive": 45.43960558751027,
+        "cluster_bootstrap_95_ci": [
+          -0.07634657312065629,
+          -0.007313472716624574
+        ]
+      },
+      "random": {
+        "mean_delta_logp": 0.002077477381870016,
+        "median_delta_logp": 9.560585021972656e-05,
+        "percent_positive": 52.588331963845526,
+        "cluster_bootstrap_95_ci": [
+          -0.0031230947161562154,
+          0.0073207310544842
+        ]
+      },
+      "logit_history": {
+        "mean_delta_logp": -0.01841406209506064,
+        "median_delta_logp": -0.006891846656799316,
+        "percent_positive": 47.493837304847986,
+        "cluster_bootstrap_95_ci": [
+          -0.03438835629037586,
+          -0.002483492221015054
+        ]
+      }
+    },
+    "target_already_top1_at_t_minus_4": {
+      "n": 13152,
+      "samples": 200,
+      "real": {
+        "mean_delta_logp": -0.0008347530104365973,
+        "median_delta_logp": -3.2119838579092175e-05,
+        "percent_positive": 32.22323600973236,
+        "cluster_bootstrap_95_ci": [
+          -0.0018082284377735679,
+          0.00012857850755272198
+        ]
+      },
+      "shuffle": {
+        "mean_delta_logp": -0.022911822596448334,
+        "median_delta_logp": -0.00043952258420176804,
+        "percent_positive": 24.741484184914842,
+        "cluster_bootstrap_95_ci": [
+          -0.026123789542684614,
+          -0.01988630419320948
+        ]
+      },
+      "random": {
+        "mean_delta_logp": -3.0252436147055627e-05,
+        "median_delta_logp": -1.1920883480343036e-07,
+        "percent_positive": 46.487226277372265,
+        "cluster_bootstrap_95_ci": [
+          -0.0003547151530949068,
+          0.00028651144628693496
+        ]
+      },
+      "logit_history": {
+        "mean_delta_logp": 0.0012727308696918824,
+        "median_delta_logp": -0.00017943438433576375,
+        "percent_positive": 22.589720194647203,
+        "cluster_bootstrap_95_ci": [
+          0.0004778774969534359,
+          0.0020995506743436486
+        ]
+      }
+    },
+    "target_not_top1_at_t_minus_4": {
+      "n": 5223,
+      "samples": 200,
+      "real": {
+        "mean_delta_logp": -0.03792558864536645,
+        "median_delta_logp": -0.005883902311325073,
+        "percent_positive": 27.627800114876504,
+        "cluster_bootstrap_95_ci": [
+          -0.0430185886892712,
+          -0.03294214018821304
+        ]
+      },
+      "shuffle": {
+        "mean_delta_logp": -0.06395779015545568,
+        "median_delta_logp": -0.012780267745256424,
+        "percent_positive": 27.49377752249665,
+        "cluster_bootstrap_95_ci": [
+          -0.07342384641033481,
+          -0.05424883691597836
+        ]
+      },
+      "random": {
+        "mean_delta_logp": -0.0009094381645459168,
+        "median_delta_logp": -1.9072904251515865e-06,
+        "percent_positive": 47.731188971855254,
+        "cluster_bootstrap_95_ci": [
+          -0.002296121066000907,
+          0.00045990844211004316
+        ]
+      },
+      "logit_history": {
+        "mean_delta_logp": -0.05521942411593207,
+        "median_delta_logp": -0.02544313669204712,
+        "percent_positive": 14.474439977024698,
+        "cluster_bootstrap_95_ci": [
+          -0.06002804402089674,
+          -0.05047276915939339
+        ]
+      }
+    },
+    "trajectory_stable_through_reveal": {
+      "n": 12016,
+      "samples": 200,
+      "real": {
+        "mean_delta_logp": -0.0011971365253634833,
+        "median_delta_logp": -2.7888767363037914e-05,
+        "percent_positive": 31.807589880159785,
+        "cluster_bootstrap_95_ci": [
+          -0.001991429098939443,
+          -0.00044113139385330635
+        ]
+      },
+      "shuffle": {
+        "mean_delta_logp": -0.020853056999382415,
+        "median_delta_logp": -0.0004018992949568201,
+        "percent_positive": 23.918109187749668,
+        "cluster_bootstrap_95_ci": [
+          -0.023652240341384297,
+          -0.018310264588771913
+        ]
+      },
+      "random": {
+        "mean_delta_logp": -3.621679514120802e-05,
+        "median_delta_logp": -1.1920906217710581e-07,
+        "percent_positive": 46.163448735019976,
+        "cluster_bootstrap_95_ci": [
+          -0.00026765674507898675,
+          0.00019909698051668041
+        ]
+      },
+      "logit_history": {
+        "mean_delta_logp": -2.6519967168935595e-05,
+        "median_delta_logp": -0.00016106122347991914,
+        "percent_positive": 21.446404793608522,
+        "cluster_bootstrap_95_ci": [
+          -0.0005513552332911043,
+          0.0005067697513122001
+        ]
+      }
+    },
+    "trajectory_changes_before_reveal": {
+      "n": 6359,
+      "samples": 200,
+      "real": {
+        "mean_delta_logp": -0.030614755244416342,
+        "median_delta_logp": -0.004485797137022018,
+        "percent_positive": 29.23415631388583,
+        "cluster_bootstrap_95_ci": [
+          -0.03523558119985227,
+          -0.026048611307754568
+        ]
+      },
+      "shuffle": {
+        "mean_delta_logp": -0.06051541057805542,
+        "median_delta_logp": -0.011271275579929352,
+        "percent_positive": 28.557949363107404,
+        "cluster_bootstrap_95_ci": [
+          -0.07003998805448584,
+          -0.05109277781733175
+        ]
+      },
+      "random": {
+        "mean_delta_logp": -0.0007411062373349023,
+        "median_delta_logp": -1.3109238352626562e-06,
+        "percent_positive": 48.120773706557635,
+        "cluster_bootstrap_95_ci": [
+          -0.001983603007296941,
+          0.0005197983575642131
+        ]
+      },
+      "logit_history": {
+        "mean_delta_logp": -0.04267234342409556,
+        "median_delta_logp": -0.019015192985534668,
+        "percent_positive": 18.08460449756251,
+        "cluster_bootstrap_95_ci": [
+          -0.04696054432545682,
+          -0.03827610525187719
+        ]
+      }
+    },
+    "vanilla_future_target_logp_q1": {
+      "n": 4594,
+      "samples": 200,
+      "real": {
+        "mean_delta_logp": -0.027419502412360117,
+        "median_delta_logp": -0.0049832165241241455,
+        "percent_positive": 43.426208097518504,
+        "cluster_bootstrap_95_ci": [
+          -0.03403663648507009,
+          -0.0208605606180325
+        ]
+      },
+      "shuffle": {
+        "mean_delta_logp": -0.07841424439083786,
+        "median_delta_logp": -0.05662086606025696,
+        "percent_positive": 37.61427949499347,
+        "cluster_bootstrap_95_ci": [
+          -0.09181614759896617,
+          -0.06490410225107389
+        ]
+      },
+      "random": {
+        "mean_delta_logp": 8.3804857123661e-05,
+        "median_delta_logp": 9.968876838684082e-06,
+        "percent_positive": 51.45842403134523,
+        "cluster_bootstrap_95_ci": [
+          -0.0017106863787650745,
+          0.0018224144238479674
+        ]
+      },
+      "logit_history": {
+        "mean_delta_logp": -0.03440352271420052,
+        "median_delta_logp": -0.01723620295524597,
+        "percent_positive": 39.81279930343927,
+        "cluster_bootstrap_95_ci": [
+          -0.04009953813455185,
+          -0.028518451604263365
+        ]
+      }
+    },
+    "vanilla_future_target_logp_q2": {
+      "n": 4594,
+      "samples": 200,
+      "real": {
+        "mean_delta_logp": -0.01540187383441323,
+        "median_delta_logp": -0.004263769835233688,
+        "percent_positive": 37.505441880713974,
+        "cluster_bootstrap_95_ci": [
+          -0.01730855385745943,
+          -0.01366860937225705
+        ]
+      },
+      "shuffle": {
+        "mean_delta_logp": -0.05091380905489633,
+        "median_delta_logp": -0.022845108062028885,
+        "percent_positive": 30.757509795385285,
+        "cluster_bootstrap_95_ci": [
+          -0.056078068499962636,
+          -0.04619233455613317
+        ]
+      },
+      "random": {
+        "mean_delta_logp": -0.0010926793704460537,
+        "median_delta_logp": -1.4141201972961426e-05,
+        "percent_positive": 47.32259468872442,
+        "cluster_bootstrap_95_ci": [
+          -0.0015160276784944135,
+          -0.0006831443407352029
+        ]
+      },
+      "logit_history": {
+        "mean_delta_logp": -0.021182475358768358,
+        "median_delta_logp": -0.009407680481672287,
+        "percent_positive": 28.123639529821503,
+        "cluster_bootstrap_95_ci": [
+          -0.022935579464137684,
+          -0.019471127142589983
+        ]
+      }
+    },
+    "vanilla_future_target_logp_q3": {
+      "n": 4593,
+      "samples": 200,
+      "real": {
+        "mean_delta_logp": -0.0025850510987613555,
+        "median_delta_logp": -0.0005166901391930878,
+        "percent_positive": 26.888743740474634,
+        "cluster_bootstrap_95_ci": [
+          -0.0029293419169269985,
+          -0.0022951343138055236
+        ]
+      },
+      "shuffle": {
+        "mean_delta_logp": -0.00860543045127812,
+        "median_delta_logp": -0.0020247488282620907,
+        "percent_positive": 21.010232963204878,
+        "cluster_bootstrap_95_ci": [
+          -0.010073381379950166,
+          -0.007468302720423941
+        ]
+      },
+      "random": {
+        "mean_delta_logp": -0.00010747654091082004,
+        "median_delta_logp": -4.2782630771398544e-06,
+        "percent_positive": 47.13694752884825,
+        "cluster_bootstrap_95_ci": [
+          -0.0001425431788836287,
+          -7.382623403261976e-05
+        ]
+      },
+      "logit_history": {
+        "mean_delta_logp": -0.0034023596199697047,
+        "median_delta_logp": -0.0013092169538140297,
+        "percent_positive": 10.646636185499673,
+        "cluster_bootstrap_95_ci": [
+          -0.00365514143941694,
+          -0.0031562663779303346
+        ]
+      }
+    },
+    "vanilla_future_target_logp_q4": {
+      "n": 4594,
+      "samples": 196,
+      "real": {
+        "mean_delta_logp": -0.00010219392984838284,
+        "median_delta_logp": -1.0847918929357547e-05,
+        "percent_positive": 15.846756639094469,
+        "cluster_bootstrap_95_ci": [
+          -0.00012282894630662096,
+          -8.652037466609984e-05
+        ]
+      },
+      "shuffle": {
+        "mean_delta_logp": -0.0003765801432325252,
+        "median_delta_logp": -4.1958245674322825e-05,
+        "percent_positive": 12.712233347845014,
+        "cluster_bootstrap_95_ci": [
+          -0.00042222809040428716,
+          -0.0003341906823546492
+        ]
+      },
+      "random": {
+        "mean_delta_logp": -4.2373328304159905e-06,
+        "median_delta_logp": -1.1919837561435997e-07,
+        "percent_positive": 41.4453635176317,
+        "cluster_bootstrap_95_ci": [
+          -8.076921087494205e-06,
+          -1.968286638362462e-06
+        ]
+      },
+      "logit_history": {
+        "mean_delta_logp": -0.00014866845398034878,
+        "median_delta_logp": -4.291244113119319e-05,
+        "percent_positive": 2.546800174140183,
+        "cluster_bootstrap_95_ci": [
+          -0.0001598099317749016,
+          -0.00013806846354595166
+        ]
+      }
+    },
+    "vanilla_entropy_q1": {
+      "n": 4594,
+      "samples": 196,
+      "real": {
+        "mean_delta_logp": -9.440828107697766e-05,
+        "median_delta_logp": -1.0847001249203458e-05,
+        "percent_positive": 15.933826730518067,
+        "cluster_bootstrap_95_ci": [
+          -0.00010573243389386445,
+          -8.389050994543184e-05
+        ]
+      },
+      "shuffle": {
+        "mean_delta_logp": -0.0003691123443400661,
+        "median_delta_logp": -4.1958245674322825e-05,
+        "percent_positive": 12.734000870700916,
+        "cluster_bootstrap_95_ci": [
+          -0.00041126144441156604,
+          -0.00032987226477666407
+        ]
+      },
+      "random": {
+        "mean_delta_logp": -4.181113701072087e-06,
+        "median_delta_logp": -1.1918018572032452e-07,
+        "percent_positive": 41.48889856334349,
+        "cluster_bootstrap_95_ci": [
+          -7.961150274373688e-06,
+          -1.9403639821535744e-06
+        ]
+      },
+      "logit_history": {
+        "mean_delta_logp": -0.00014682976536344153,
+        "median_delta_logp": -4.255642397765769e-05,
+        "percent_positive": 2.633870265563779,
+        "cluster_bootstrap_95_ci": [
+          -0.00015804036405271283,
+          -0.0001363536179548771
+        ]
+      }
+    },
+    "vanilla_entropy_q2": {
+      "n": 4594,
+      "samples": 200,
+      "real": {
+        "mean_delta_logp": -0.002546447317599778,
+        "median_delta_logp": -0.0005066869780421257,
+        "percent_positive": 27.013495864170658,
+        "cluster_bootstrap_95_ci": [
+          -0.0029059171461646755,
+          -0.00224548349380798
+        ]
+      },
+      "shuffle": {
+        "mean_delta_logp": -0.008450000177140302,
+        "median_delta_logp": -0.0019757193804252893,
+        "percent_positive": 21.658685241619505,
+        "cluster_bootstrap_95_ci": [
+          -0.010006442871928777,
+          -0.007297358192483671
+        ]
+      },
+      "random": {
+        "mean_delta_logp": -3.084760591785522e-05,
+        "median_delta_logp": -3.79001721739769e-06,
+        "percent_positive": 47.21375707444493,
+        "cluster_bootstrap_95_ci": [
+          -0.00012323617752240808,
+          0.00012753487013230565
+        ]
+      },
+      "logit_history": {
+        "mean_delta_logp": -0.0032449507921879697,
+        "median_delta_logp": -0.0012665094691328704,
+        "percent_positive": 10.949063996517197,
+        "cluster_bootstrap_95_ci": [
+          -0.003490706518664845,
+          -0.0030051631232222995
+        ]
+      }
+    },
+    "vanilla_entropy_q3": {
+      "n": 4593,
+      "samples": 200,
+      "real": {
+        "mean_delta_logp": -0.01150093275929141,
+        "median_delta_logp": -0.0023707300424575806,
+        "percent_positive": 39.233616372741125,
+        "cluster_bootstrap_95_ci": [
+          -0.014117589260922271,
+          -0.008982486060002053
+        ]
+      },
+      "shuffle": {
+        "mean_delta_logp": -0.043446636245681194,
+        "median_delta_logp": -0.017968781292438507,
+        "percent_positive": 33.79055083823209,
+        "cluster_bootstrap_95_ci": [
+          -0.050587316029283576,
+          -0.036296215403779274
+        ]
+      },
+      "random": {
+        "mean_delta_logp": 8.501828867749869e-05,
+        "median_delta_logp": -3.855675458908081e-06,
+        "percent_positive": 48.00783801436969,
+        "cluster_bootstrap_95_ci": [
+          -0.0006716258762896938,
+          0.0008777652601104726
+        ]
+      },
+      "logit_history": {
+        "mean_delta_logp": -0.015149915022518013,
+        "median_delta_logp": -0.007996201515197754,
+        "percent_positive": 30.698889614630957,
+        "cluster_bootstrap_95_ci": [
+          -0.016934560499763194,
+          -0.013338975433666533
+        ]
+      }
+    },
+    "vanilla_entropy_q4": {
+      "n": 4594,
+      "samples": 200,
+      "real": {
+        "mean_delta_logp": -0.03136877368399318,
+        "median_delta_logp": -0.013510987162590027,
+        "percent_positive": 41.48889856334349,
+        "cluster_bootstrap_95_ci": [
+          -0.037274686225807305,
+          -0.025379151033632932
+        ]
+      },
+      "shuffle": {
+        "mean_delta_logp": -0.08605189934051784,
+        "median_delta_logp": -0.06677816808223724,
+        "percent_positive": 33.91380060949064,
+        "cluster_bootstrap_95_ci": [
+          -0.09784016821860976,
+          -0.07415769860909423
+        ]
+      },
+      "random": {
+        "mean_delta_logp": -0.001170536054766173,
+        "median_delta_logp": 3.2514333724975586e-05,
+        "percent_positive": 50.653025685676965,
+        "cluster_bootstrap_95_ci": [
+          -0.0028251643823854287,
+          0.0005428449592728037
+        ]
+      },
+      "logit_history": {
+        "mean_delta_logp": -0.04059788771865676,
+        "median_delta_logp": -0.022246673703193665,
+        "percent_positive": 36.852416195037,
+        "cluster_bootstrap_95_ci": [
+          -0.04638426595302905,
+          -0.03486381052149722
+        ]
+      }
+    },
+    "kv_drift_q1": {
+      "n": 4594,
+      "samples": 200,
+      "real": {
+        "mean_delta_logp": -0.0042206723061029424,
+        "median_delta_logp": -3.2871159419300966e-05,
+        "percent_positive": 37.962559860687854,
+        "cluster_bootstrap_95_ci": [
+          -0.00619112633609569,
+          -0.002229565121527098
+        ]
+      },
+      "shuffle": {
+        "mean_delta_logp": -0.03310908413815396,
+        "median_delta_logp": -0.0008021999383345246,
+        "percent_positive": 34.7191989551589,
+        "cluster_bootstrap_95_ci": [
+          -0.04211090248211933,
+          -0.02415295694951898
+        ]
+      },
+      "random": {
+        "mean_delta_logp": -0.0001368834660283573,
+        "median_delta_logp": 0.0,
+        "percent_positive": 48.737483674357854,
+        "cluster_bootstrap_95_ci": [
+          -0.0009539482316123946,
+          0.0006645561643387179
+        ]
+      },
+      "logit_history": {
+        "mean_delta_logp": -0.0068835915502575805,
+        "median_delta_logp": -0.000545349670574069,
+        "percent_positive": 28.101872006965607,
+        "cluster_bootstrap_95_ci": [
+          -0.009028199230982754,
+          -0.0047467869784008415
+        ]
+      }
+    },
+    "kv_drift_q2": {
+      "n": 4594,
+      "samples": 200,
+      "real": {
+        "mean_delta_logp": -0.007925072357022741,
+        "median_delta_logp": -3.927013312932104e-05,
+        "percent_positive": 30.77927731824118,
+        "cluster_bootstrap_95_ci": [
+          -0.010624013929790515,
+          -0.0052563635510815224
+        ]
+      },
+      "shuffle": {
+        "mean_delta_logp": -0.028252512737644418,
+        "median_delta_logp": -0.0006029658761690371,
+        "percent_positive": 24.053112755768392,
+        "cluster_bootstrap_95_ci": [
+          -0.03453323821969675,
+          -0.02213084722346488
+        ]
+      },
+      "random": {
+        "mean_delta_logp": 0.0006396659908625322,
+        "median_delta_logp": 0.0,
+        "percent_positive": 47.431432303003916,
+        "cluster_bootstrap_95_ci": [
+          -0.00015623162493108328,
+          0.0014480908027915474
+        ]
+      },
+      "logit_history": {
+        "mean_delta_logp": -0.01055554291521142,
+        "median_delta_logp": -0.00022361084120348096,
+        "percent_positive": 18.91597736177623,
+        "cluster_bootstrap_95_ci": [
+          -0.012763467721001408,
+          -0.008424127799536947
+        ]
+      }
+    },
+    "kv_drift_q3": {
+      "n": 4593,
+      "samples": 200,
+      "real": {
+        "mean_delta_logp": -0.014738963267199692,
+        "median_delta_logp": -0.00014937855303287506,
+        "percent_positive": 28.39102982799913,
+        "cluster_bootstrap_95_ci": [
+          -0.018499273824493966,
+          -0.011209687870339421
+        ]
+      },
+      "shuffle": {
+        "mean_delta_logp": -0.040575266432124085,
+        "median_delta_logp": -0.0013464903458952904,
+        "percent_positive": 21.706945351622036,
+        "cluster_bootstrap_95_ci": [
+          -0.04615621269679036,
+          -0.03519072293832685
+        ]
+      },
+      "random": {
+        "mean_delta_logp": -0.0008640413325934702,
+        "median_delta_logp": -4.7681533033028245e-07,
+        "percent_positive": 45.917700849118226,
+        "cluster_bootstrap_95_ci": [
+          -0.001653359342213375,
+          -0.0001067002267003168
+        ]
+      },
+      "logit_history": {
+        "mean_delta_logp": -0.01679945522378333,
+        "median_delta_logp": -0.0006450442597270012,
+        "percent_positive": 19.02895710864359,
+        "cluster_bootstrap_95_ci": [
+          -0.02007951347515065,
+          -0.013623988001286612
+        ]
+      }
+    },
+    "kv_drift_q4": {
+      "n": 4594,
+      "samples": 200,
+      "real": {
+        "mean_delta_logp": -0.01862655895066686,
+        "median_delta_logp": -0.00028962440410396084,
+        "percent_positive": 26.534610361340878,
+        "cluster_bootstrap_95_ci": [
+          -0.022896658801885378,
+          -0.014467265228483529
+        ]
+      },
+      "shuffle": {
+        "mean_delta_logp": -0.03638015977367649,
+        "median_delta_logp": -0.0010054727463284507,
+        "percent_positive": 21.615150195907706,
+        "cluster_bootstrap_95_ci": [
+          -0.04197901065351001,
+          -0.030921309933302842
+        ]
+      },
+      "random": {
+        "mean_delta_logp": -0.0007594942647182825,
+        "median_delta_logp": -7.15237547410652e-07,
+        "percent_positive": 45.27644754026991,
+        "cluster_bootstrap_95_ci": [
+          -0.0019436112984805908,
+          0.0003828072001175188
+        ]
+      },
+      "logit_history": {
+        "mean_delta_logp": -0.024901352673514184,
+        "median_delta_logp": -0.0015341741964221,
+        "percent_positive": 15.084893339138006,
+        "cluster_bootstrap_95_ci": [
+          -0.0290515049815577,
+          -0.020792462476024398
+        ]
+      }
+    }
+  },
+  "interpretation": [
+    "No difficulty, instability, entropy, or drift subgroup shows a clear positive Real Hidden-History mean effect.",
+    "Negative Real effects become larger in high-entropy, changing-top1, and high-drift observations.",
+    "Logit History is slightly positive only when the future target was already top-1 at t-4; this motivates a directionality/sharpening control rather than another hidden-memory method."
+  ]
+}

@@ -1,0 +1,14 @@
+.conda/
+__pycache__/
+.pytest_cache/
+.mplconfig/
+*.pyc
+# Raw per-sample records are large and are regenerated on the destination
+# server. Keep the directory layout through traces/.gitkeep only.
+traces/*
+!traces/.gitkeep
+
+# Atomic/incomplete outputs and local logs.
+*.json.tmp
+*.log
+nohup.out

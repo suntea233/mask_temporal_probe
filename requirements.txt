@@ -1,0 +1,13 @@
+--extra-index-url https://download.pytorch.org/whl/cu128
+torch==2.7.1
+transformers==4.38.2
+datasets==2.21.0
+accelerate==0.33.0
+safetensors>=0.4,<1
+numpy>=1.26,<3
+scipy>=1.11,<2
+matplotlib>=3.8,<4
+PyYAML>=6,<7
+pytest>=8,<9
+tqdm>=4.66,<5
+

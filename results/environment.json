@@ -1,0 +1,14 @@
+{
+  "python": "3.10.20",
+  "pytorch": "2.7.1+cu128",
+  "torch_cuda": "12.8",
+  "cuda_available": true,
+  "gpu_count": 2,
+  "gpu_models": [
+    "NVIDIA A800-SXM4-40GB",
+    "NVIDIA A800-SXM4-40GB"
+  ],
+  "nvidia_smi": "NVIDIA A800-SXM4-40GB, 570.211.01, 40960 MiB\nNVIDIA A800-SXM4-40GB, 570.211.01, 40960 MiB",
+  "nvcc": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Fri_Feb_21_20:23:50_PST_2025\nCuda compilation tools, release 12.8, V12.8.93\nBuild cuda_12.8.r12.8/compiler.35583870_0",
+  "official_repo_commit": "9182493720ed723ef8031210d85959364e51cbe0"
+}
