@@ -17,6 +17,27 @@ SCENARIO_BATCH_SIZE = 8
 MATURITY_EPSILON = 1e-8
 
 
+def _strict_future_endpoint(reveal_step: int, probe_step: int) -> bool:
+    return reveal_step > probe_step
+
+
+def _record_sanity(records: list[dict[str, Any]], hidden_isolated: bool, hard_isolated: bool) -> dict[str, bool]:
+    nonempty = bool(records)
+    return {
+        "previous_same_position_step_layer": nonempty and all(r["previous_step"] == r["step_in_block"] - 1 for r in records),
+        "early_is_first_unresolved": nonempty and all(r["early_step"] == 1 for r in records),
+        "endpoint_same_position_layer_pre_reveal": nonempty and all(
+            r["endpoint_step"] == r["reveal_step"] and r["endpoint_horizon"] > 0 for r in records
+        ),
+        "shuffle_same_block_different_position": nonempty and all(
+            r["absolute_position"] != r["shuffle_source_position"] for r in records
+        ),
+        "only_target_modified": nonempty and hidden_isolated,
+        "hard_only_target_token_changed": nonempty and hard_isolated,
+        "downstream_targets_nonempty": nonempty and all(r["downstream_count"] > 0 for r in records),
+    }
+
+
 def _prediction_rows(logits: torch.Tensor, positions: list[int], reference: torch.Tensor, prompt_length: int) -> list[dict[str, Any]]:
     rows = logits[0, positions].float()
     probabilities = F.softmax(rows, -1); log_probabilities = F.log_softmax(rows, -1)
@@ -50,7 +71,9 @@ def _condition_result(logits: torch.Tensor, target: int, vanilla: dict[str, Any]
 
 def _downstream_gain(logits: torch.Tensor, positions: list[int], targets: list[int], baseline_logp: list[float]) -> float:
     if not positions:
-        return 0.0
+        raise ValueError("Downstream gain requires at least one eligible non-target position")
+    if not (len(positions) == len(targets) == len(baseline_logp)):
+        raise ValueError("Downstream positions, targets, and baselines must have equal length")
     rows = logits[positions].float(); target_tensor = torch.tensor(targets, device=rows.device)
     logp = F.log_softmax(rows, -1).gather(1, target_tensor[:, None]).squeeze(1).cpu()
     return float((logp - torch.tensor(baseline_logp)).mean())
@@ -59,14 +82,20 @@ def _downstream_gain(logits: torch.Tensor, positions: list[int], targets: list[i
 def _run_hidden_scenarios(
     model, controller: ProjectionController, snapshot: torch.Tensor, attention_mask: torch.Tensor | None,
     layer: int, scenarios: list[dict[str, Any]], records: list[dict[str, Any]],
-) -> None:
+) -> bool:
     device = model.device
+    target_isolation_verified = True
     for start in range(0, len(scenarios), SCENARIO_BATCH_SIZE):
         chunk = scenarios[start:start + SCENARIO_BATCH_SIZE]; batch = len(chunk)
         x_batch = snapshot.to(device).repeat(batch, 1)
         mask_batch = None if attention_mask is None else attention_mask.repeat(batch, 1)
         positions = [scenario["absolute_position"] for scenario in chunk]
         replacements = torch.stack([scenario["replacement"] for scenario in chunk])
+        target_isolation_verified &= all(
+            torch.equal(x_batch[row].cpu(), snapshot[0])
+            and scenario["absolute_position"] == records[scenario["record_index"]]["absolute_position"]
+            for row, scenario in enumerate(chunk)
+        )
         with controller.mode(positions, batch_indices=list(range(batch)), h={layer: replacements}):
             logits = model(x_batch, attention_mask=mask_batch).logits
         for row, scenario in enumerate(chunk):
@@ -79,19 +108,23 @@ def _run_hidden_scenarios(
                 record["future_vanilla_target"], record["vanilla"], downstream,
             )
             record["layers"][str(layer)][scenario["condition"]] = result
+    return target_isolation_verified
 
 
 def _run_hard(
     model, snapshots: torch.Tensor, attention_mask: torch.Tensor | None, records: list[dict[str, Any]], indices: list[int],
-) -> None:
+) -> bool:
     if not indices:
-        return
+        return False
     device = model.device
+    target_isolation_verified = True
     for start in range(0, len(indices), SCENARIO_BATCH_SIZE):
         chunk = indices[start:start + SCENARIO_BATCH_SIZE]; batch = len(chunk)
         x_batch = snapshots.to(device).repeat(batch, 1)
         for row, index in enumerate(chunk):
             record = records[index]; x_batch[row, record["absolute_position"]] = record["hard_token"]
+            changed = torch.nonzero(x_batch[row].cpu() != snapshots[0]).flatten().tolist()
+            target_isolation_verified &= changed == [record["absolute_position"]]
         mask_batch = None if attention_mask is None else attention_mask.repeat(batch, 1)
         logits = model(x_batch, attention_mask=mask_batch).logits
         for row, index in enumerate(chunk):
@@ -99,6 +132,7 @@ def _run_hard(
             record["hard_downstream_gain"] = _downstream_gain(
                 logits[row], record["other_positions"], record["other_targets"], record["other_vanilla_logp"],
             )
+    return target_isolation_verified
 
 
 @torch.inference_mode()
@@ -118,14 +152,15 @@ def unified_latent_generate(
     eos_positions = torch.nonzero(reference_generated == eos_id).flatten(); content_end = int(eos_positions[0]) if eos_positions.numel() else config.gen_length
     controller = ProjectionController(model); records: list[dict[str, Any]] = []
     max_resume_error = 0.0; resume_checked = False; max_random_norm_relative_error = 0.0
+    hidden_target_isolation_verified = True; hard_target_isolation_verified = True
     try:
         for block in range(blocks):
             block_start = prompt_length + block * config.block_length; block_end = block_start + config.block_length
             block_positions = list(range(block_start, block_end)); transfer_counts = get_num_transfer_tokens(x[:, block_start:block_end] == config.mask_id, steps_per_block)
             hidden_by_step: dict[int, dict[int, torch.Tensor]] = {}; predictions: dict[int, list[dict[str, Any]]] = {}
-            inputs: dict[int, torch.Tensor] = {}; reveal_steps: dict[int, int] = {}; probe_specs: list[dict[str, Any]] = []
+            reveal_steps: dict[int, int] = {}; probe_specs: list[dict[str, Any]] = []
             for step_zero in range(steps_per_block):
-                step = step_zero + 1; inputs[step] = x.detach().cpu().clone()
+                step = step_zero + 1
                 with controller.mode(block_positions, capture_h=True, capture_kv=False):
                     logits = model(x, attention_mask=attention_mask).logits
                 captured = controller.hidden_state(); hidden_by_step[step] = {layer: captured[layer] for layer in CANDIDATE_LAYERS}
@@ -145,13 +180,26 @@ def unified_latent_generate(
                     gen_position = block * config.block_length + row; target = int(reference_generated[gen_position])
                     if gen_position >= content_end or target in special_token_ids or row not in reveal_steps:
                         continue
+                    # The endpoint condition is explicitly a future-information
+                    # oracle.  If this position reveals in the probe forward,
+                    # its pre-reveal endpoint is identical to the current state
+                    # and is therefore not an intervention.
+                    if not _strict_future_endpoint(reveal_steps[row], step):
+                        continue
                     absolute = block_start + row; current_prediction = predictions[step][row]; early_entropy = predictions[1][row]["entropy"]
                     relative_entropy = current_prediction["entropy"] / (early_entropy + MATURITY_EPSILON)
                     other_rows = [other for other in probe["active"] if other != row and block * config.block_length + other < content_end and int(reference_generated[block * config.block_length + other]) not in special_token_ids]
+                    # Downstream utility is undefined without another eligible
+                    # unresolved position.  Do not encode missing measurements
+                    # as an artificial zero.
+                    if not other_rows:
+                        continue
                     record = {
                         "sample_id": sample_id, "block_index": block, "step_in_block": step, "progress": probe["progress"],
                         "absolute_position": absolute, "generation_position": gen_position, "shuffle_source_position": block_start + probe["shuffle"][row],
                         "future_vanilla_target": target, "reveal_step": reveal_steps[row],
+                        "endpoint_horizon": reveal_steps[row] - step,
+                        "previous_step": step - 1, "early_step": 1, "endpoint_step": reveal_steps[row],
                         "entropy": current_prediction["entropy"], "early_entropy": early_entropy,
                         "relative_entropy": relative_entropy, "maturity": 1 - relative_entropy,
                         "top1_probability": current_prediction["top1_probability"], "top1_top2_margin": current_prediction["top1_top2_margin"],
@@ -160,6 +208,7 @@ def unified_latent_generate(
                         "other_positions": [block_start + other for other in other_rows],
                         "other_targets": [int(reference_generated[block * config.block_length + other]) for other in other_rows],
                         "other_vanilla_logp": [predictions[step][other]["future_target_logp"] for other in other_rows],
+                        "downstream_count": len(other_rows),
                         "layers": {str(layer): {} for layer in CANDIDATE_LAYERS}, "hard_downstream_gain": None,
                     }
                     records.append(record); local_indices.append(len(records) - 1)
@@ -191,8 +240,10 @@ def unified_latent_generate(
                         values = {"previous": previous, "early": early, "shuffle": shuffled, "random": random, "endpoint": endpoint}
                         for condition, replacement in values.items():
                             scenarios.append({"record_index": index, "absolute_position": record["absolute_position"], "condition": condition, "replacement": replacement})
-                    _run_hidden_scenarios(model, controller, probe["snapshot"], attention_mask, layer, scenarios, records)
-                _run_hard(model, probe["snapshot"], attention_mask, records, local_indices)
+                    hidden_target_isolation_verified &= _run_hidden_scenarios(
+                        model, controller, probe["snapshot"], attention_mask, layer, scenarios, records,
+                    )
+                hard_target_isolation_verified &= _run_hard(model, probe["snapshot"], attention_mask, records, local_indices)
     finally:
         controller.close()
 
@@ -204,8 +255,6 @@ def unified_latent_generate(
         "reference_equals_unified_traced": bool(torch.equal(generated, reference_generated)), "projection_layers": controller.n_layers,
         "resume_current_max_abs_logit_error": max_resume_error if verify_resume else None, "resume_checked": resume_checked if verify_resume else None,
         "random_norm_max_relative_error": max_random_norm_relative_error, "observations": len(records), "schedule": schedule,
-        "previous_same_position_step_layer": True, "early_is_first_unresolved": True, "endpoint_same_position_layer_pre_reveal": True,
-        "shuffle_same_block_different_position": all(r["absolute_position"] != r["shuffle_source_position"] for r in records),
-        "only_target_modified": True, "hard_only_target_token_changed": True,
     }
+    sanity.update(_record_sanity(records, hidden_target_isolation_verified, hard_target_isolation_verified))
     return x, records, sanity

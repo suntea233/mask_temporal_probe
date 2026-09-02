@@ -79,10 +79,15 @@ No counterfactual changes the vanilla trajectory.
 
 Implementation is in `src/unified_latent_sampler.py` and
 `src/run_unified_latent.py`; analysis is in
-`analysis/analyze_unified_latent.py`. The mandatory debug gate has not yet been
-run on this source snapshot because both GPUs on the original server were
-occupied by an unrelated job. Do not start the formal run until the new
-server's 5-sample gate passes.
+`analysis/analyze_unified_latent.py`. The mandatory 5-sample debug gate and all
+200 formal samples completed successfully on four NVIDIA V100-SXM2-32GB GPUs;
+every unified trajectory exactly reproduced its pinned official vanilla
+reference. The final decision is **B: endpoint interface exists, simple carry
+fails**. Previous-state carry was harmful at every candidate layer, while the
+strict future endpoint oracle produced a positive target-log-probability effect
+that increased toward layer 31. See
+`results/report_unified_latent_state_probe.txt` and
+`results/unified_latent_state_probe_summary.json`.
 
 See [RUN_UNIFIED_PROBE.md](RUN_UNIFIED_PROBE.md) for the exact cross-server
 setup, resumable run commands, two-GPU sharding, expected outputs, and

@@ -1,14 +1,16 @@
 {
   "python": "3.10.20",
-  "pytorch": "2.7.1+cu128",
-  "torch_cuda": "12.8",
+  "pytorch": "2.6.0+cu124",
+  "torch_cuda": "12.4",
   "cuda_available": true,
-  "gpu_count": 2,
+  "gpu_count": 4,
   "gpu_models": [
-    "NVIDIA A800-SXM4-40GB",
-    "NVIDIA A800-SXM4-40GB"
+    "Tesla V100-SXM2-32GB",
+    "Tesla V100-SXM2-32GB",
+    "Tesla V100-SXM2-32GB",
+    "Tesla V100-SXM2-32GB"
   ],
-  "nvidia_smi": "NVIDIA A800-SXM4-40GB, 570.211.01, 40960 MiB\nNVIDIA A800-SXM4-40GB, 570.211.01, 40960 MiB",
-  "nvcc": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Fri_Feb_21_20:23:50_PST_2025\nCuda compilation tools, release 12.8, V12.8.93\nBuild cuda_12.8.r12.8/compiler.35583870_0",
+  "nvidia_smi": "Tesla V100-SXM2-32GB, 575.51.03, 32768 MiB\nTesla V100-SXM2-32GB, 575.51.03, 32768 MiB\nTesla V100-SXM2-32GB, 575.51.03, 32768 MiB\nTesla V100-SXM2-32GB, 575.51.03, 32768 MiB",
+  "nvcc": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2025 NVIDIA Corporation\nBuilt on Tue_May_27_02:21:03_PDT_2025\nCuda compilation tools, release 12.9, V12.9.86\nBuild cuda_12.9.r12.9/compiler.36037853_0",
   "official_repo_commit": "9182493720ed723ef8031210d85959364e51cbe0"
 }

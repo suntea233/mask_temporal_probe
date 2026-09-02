@@ -11,7 +11,9 @@ and raw per-sample traces.
 - Model revision: `08b83a6feb34df1a6011b80c3c00c7563e963b07`
 - GSM8K revision: `740312add88f781978c0658806c59bc2815b9866`
 - Included Arrow SHA-256: `45965b000311d1550e5619b60b5bf31cf76edebfd8b8eddc62a876fbf8c9be95`
-- Python: 3.10; reference run used PyTorch 2.7.1+cu128
+- Python: 3.10. The original A800 run used PyTorch 2.7.1+cu128; the completed
+  unified run used PyTorch 2.6.0+cu124 because 2.7.1 wheels no longer include
+  kernels for the V100's compute capability 7.0.
 
 The runner passes both `revision=...` and `local_files_only=True`. It cannot
 silently use a newer checkpoint.
@@ -42,11 +44,11 @@ python -m pip install -r requirements.txt
 python -m pytest -q
 ```
 
-The original machine used two A800 40GB cards, but the runner loads one
-LLaDA-8B model on one visible GPU. A single GPU with roughly 24GB or more free
-memory is recommended. `SCENARIO_BATCH_SIZE` controls only counterfactual
-execution batching; lowering it after an OOM does not change the scientific
-conditions.
+The original machine used two A800 40GB cards; the completed unified run used
+four V100 32GB cards. The runner loads one LLaDA-8B model on one visible GPU. A
+single GPU with roughly 24GB or more free memory is recommended.
+`SCENARIO_BATCH_SIZE` controls only counterfactual execution batching; lowering
+it after an OOM does not change the scientific conditions.
 
 ## 3. Prepare the exact model revision
 
@@ -68,6 +70,17 @@ dependencies.
 
 ## 4. Run the mandatory debug gate
 
+If the completed original probe traces were not copied to this server, first
+generate the immutable official vanilla references. This runs only the pinned
+official sampler; the unified runner still requires exact trajectory equality:
+
+```bash
+CUDA_VISIBLE_DEVICES=0 python -m src.run_vanilla_reference --start 0 --count 50
+CUDA_VISIBLE_DEVICES=1 python -m src.run_vanilla_reference --start 50 --count 50
+CUDA_VISIBLE_DEVICES=2 python -m src.run_vanilla_reference --start 100 --count 50
+CUDA_VISIBLE_DEVICES=3 python -m src.run_vanilla_reference --start 150 --count 50
+```
+
 Choose one idle GPU and run 5 samples:
 
 ```bash
@@ -88,8 +101,11 @@ PY
 
 The gate checks trajectory equality, exact unchanged-hidden resume, temporal
 provenance, same-block non-self shuffle, norm matching, target-only edits, hard
-token isolation, and unchanged RNG state. Formal execution refuses to start if
-this gate is absent or failed.
+token isolation, non-empty observations/downstream target sets, and unchanged
+RNG state. Endpoint-oracle records require a strictly future pre-reveal state
+(`reveal_step > probe_step`); same-step identity replacements are excluded.
+Formal execution refuses to start if this gate is absent, failed, or was
+produced by a different probe-source fingerprint.
 
 ## 5. Run all 200 samples
 
@@ -119,6 +135,12 @@ python analysis/analyze_unified_latent.py
 
 Do not overlap sample ranges. The analysis refuses to run unless all 200
 formal sample files exist and pass sanity.
+
+Layer and maturity-bin searches are reported as exploratory, using unadjusted
+95% sample-clustered bootstrap intervals. Individual positive cells are not
+family-wise-error controlled and must not be interpreted as confirmatory in
+isolation. The report includes maturity-by-progress diagnostics because probe
+progress and unresolved duration can remain associated with entropy maturity.
 
 ## 6. Expected new outputs
 

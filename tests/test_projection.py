@@ -48,3 +48,18 @@ def test_random_norm_is_matched_per_row_and_reproducible():
     assert torch.equal(first, second)
     assert torch.allclose(first.norm(dim=-1), displacement.norm(dim=-1), atol=1e-6)
 
+
+def test_batched_hidden_replacement_isolated_by_batch_and_position():
+    torch.manual_seed(3)
+    model = Tiny()
+    x = torch.randn(2, 3, 4)
+    controller = ProjectionController(model)
+    original = model(x)
+    replacements = torch.zeros(2, 4)
+    with controller.mode([0, 2], batch_indices=[0, 1], h={0: replacements}):
+        changed = model(x)
+    assert not torch.equal(changed[0, 0], original[0, 0])
+    assert torch.equal(changed[0, 1:], original[0, 1:])
+    assert torch.equal(changed[1, :2], original[1, :2])
+    assert not torch.equal(changed[1, 2], original[1, 2])
+    controller.close()

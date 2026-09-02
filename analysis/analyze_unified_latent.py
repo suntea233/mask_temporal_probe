@@ -100,7 +100,13 @@ def continuous_associations(records:list[dict])->dict:
                 outcome=np.array([r["layers"][str(layer)][condition][field] for r in records])
                 item[condition][field]={}
                 for variable in variables:
-                    x=np.array([r[variable] for r in records]); item[condition][field][variable]={"pearson":float(pearsonr(x,outcome).statistic),"spearman":float(spearmanr(x,outcome).statistic)}
+                    x=np.array([r[variable] for r in records])
+                    if np.ptp(x)==0 or np.ptp(outcome)==0:
+                        pearson=spearman=None
+                    else:
+                        pearson=float(pearsonr(x,outcome).statistic)
+                        spearman=float(spearmanr(x,outcome).statistic)
+                    item[condition][field][variable]={"pearson":pearson,"spearman":spearman}
         result[str(layer)]=item
     return result
 
@@ -148,27 +154,31 @@ def preference_by_bin(bins:list[dict],representative:int|None,seed:int)->list[di
     return result
 
 
-def decide(overall:dict,binned:list[dict],preferences:list[dict],associations:dict)->dict:
-    training_free=False
-    for layer in CANDIDATE_LAYERS:
-        positive_bins=[]
-        for b in binned:
-            prev=b["layers"][str(layer)]["previous"]["self_delta_logp"]
-            if prev["sample_cluster_bootstrap_95_ci"][0]>0: positive_bins.append(b["index"])
-        controls=all(overall[str(layer)]["comparisons"][f"previous_minus_{c}"]["self_delta_logp"]["sample_cluster_bootstrap_95_ci"][0]>0 for c in ("early","shuffle","random"))
-        latent_preferred=any(p["preferred"]=="LATENT" for p in preferences)
-        training_free|=bool(positive_bins and controls and latent_preferred)
+def _classify_decision(training_free:bool,endpoint_usable:bool,previous_usable:bool,maturity_structured:bool)->dict:
+    if training_free:return {"code":"A","title":"TRAINING-FREE LATENT STATE SIGNAL"}
+    if endpoint_usable and not previous_usable:return {"code":"B","title":"ENDPOINT INTERFACE EXISTS, SIMPLE CARRY FAILS"}
+    if endpoint_usable and previous_usable:return {"code":"E","title":"PARTIAL CARRY SIGNAL, NOT CONTROL-ROBUST"}
+    if maturity_structured:return {"code":"C","title":"ENTROPY STRUCTURE EXISTS, BUT NO LATENT UTILITY"}
+    return {"code":"D","title":"NO USABLE LATENT INTERFACE"}
+
+
+def decide(overall:dict,binned:list[dict],preferences:list[dict],associations:dict,representative:int|None)->dict:
+    # All A criteria must refer to the same preselected representative layer.
+    # representative_layer() already requires positive overall self/downstream
+    # effects and superiority to every control at that layer.
+    positive_bins=[] if representative is None else [
+        b["index"] for b in binned
+        if b["layers"][str(representative)]["previous"]["self_delta_logp"]["sample_cluster_bootstrap_95_ci"][0]>0
+    ]
+    latent_preferred=representative is not None and any(p["preferred"]=="LATENT" for p in preferences)
+    training_free=bool(positive_bins and latent_preferred)
     endpoint_usable=any(
         overall[str(layer)]["endpoint"]["self_delta_logp"]["sample_cluster_bootstrap_95_ci"][0]>0
         or overall[str(layer)]["endpoint"]["downstream_gain"]["sample_cluster_bootstrap_95_ci"][0]>0 for layer in CANDIDATE_LAYERS
     )
     previous_usable=any(overall[str(layer)]["previous"]["self_delta_logp"]["sample_cluster_bootstrap_95_ci"][0]>0 for layer in CANDIDATE_LAYERS)
     maturity_structured=max(abs(associations[str(layer)]["previous"]["self_delta_logp"]["maturity"]["spearman"]) for layer in CANDIDATE_LAYERS)>.10
-    if training_free:return {"code":"A","title":"TRAINING-FREE LATENT STATE SIGNAL"}
-    if endpoint_usable and not previous_usable:return {"code":"B","title":"ENDPOINT INTERFACE EXISTS, SIMPLE CARRY FAILS"}
-    if maturity_structured and not endpoint_usable:return {"code":"C","title":"ENTROPY STRUCTURE EXISTS, BUT NO LATENT UTILITY"}
-    if not endpoint_usable:return {"code":"D","title":"NO USABLE LATENT INTERFACE"}
-    return {"code":"B","title":"ENDPOINT INTERFACE EXISTS, SIMPLE CARRY FAILS"}
+    return _classify_decision(training_free,endpoint_usable,previous_usable,maturity_structured)
 
 
 def _number(text:str,reference:bool=False)->str|None:
@@ -206,8 +216,18 @@ def make_figures(overall,binned,preferences,representative)->None:
 
 
 def main()->None:
-    samples,records=load();bins=assign_bins(records);overall=condition_summary(records,20285000);binned=binned_summary(bins,20287000);associations=continuous_associations(records);reversal=reversibility(records);representative=representative_layer(overall);preferences=preference_by_bin(bins,representative,20290000);decision=decide(overall,binned,preferences,associations)
+    samples,records=load();bins=assign_bins(records);overall=condition_summary(records,20285000);binned=binned_summary(bins,20287000);associations=continuous_associations(records);reversal=reversibility(records);representative=representative_layer(overall);preferences=preference_by_bin(bins,representative,20290000);decision=decide(overall,binned,preferences,associations,representative)
     correct=sum(_number(s["decoded_output"])==_number(s["reference_answer"],True) for s in samples);environment=json.loads((PROJECT/"results/environment.json").read_text())
+    cohort_diagnostics={
+        "strict_future_endpoint":all(r["endpoint_horizon"]>0 for r in records),
+        "endpoint_horizon_range":[min(r["endpoint_horizon"] for r in records),max(r["endpoint_horizon"] for r in records)],
+        "downstream_count_range":[min(r["downstream_count"] for r in records),max(r["downstream_count"] for r in records)],
+        "mean_maturity_by_progress":{
+            progress:float(np.mean([r["maturity"] for r in records if r["progress"]==progress]))
+            for progress in sorted({r["progress"] for r in records})
+        },
+        "multiplicity_note":"Layer/bin searches are exploratory and use unadjusted 95% clustered-bootstrap intervals; individual positive cells are not family-wise-error controlled.",
+    }
     answers={
         "Q1_recent_state_consumable":any(overall[str(l)]["previous"]["self_delta_logp"]["sample_cluster_bootstrap_95_ci"][0]>0 for l in CANDIDATE_LAYERS),
         "Q2_recent_beats_controls":any(all(overall[str(l)]["comparisons"][f"previous_minus_{c}"]["self_delta_logp"]["sample_cluster_bootstrap_95_ci"][0]>0 for c in ("early","shuffle","random")) for l in CANDIDATE_LAYERS),
@@ -217,9 +237,9 @@ def main()->None:
         "Q6_positive_layer_maturity_cells":[{"layer":l,"bin":b["index"]} for l in CANDIDATE_LAYERS for b in binned if b["layers"][str(l)]["previous"]["self_delta_logp"]["sample_cluster_bootstrap_95_ci"][0]>0],
         "Q7_preferences":[p["preferred"] for p in preferences],"Q8_uncertainty_reversible":reversal["maturity_decrease_frequency"]>0.05,
     }
-    summary={"status":"complete","samples":200,"observations":len(records),"all_official_outputs_equal":all(s["sanity"]["reference_equals_unified_traced"] for s in samples),"candidate_layers":list(CANDIDATE_LAYERS),"maturity_epsilon":MATURITY_EPSILON,"maturity_bins":[{k:v for k,v in b.items() if k!="records"} for b in bins],"overall":overall,"by_maturity_bin":binned,"continuous_associations":associations,"reversibility":reversal,"representative_latent_layer":representative,"state_preferences":preferences,"final_correct_samples":correct,"scientific_answers":answers,"decision":decision,"environment":environment}
+    summary={"status":"complete","samples":200,"observations":len(records),"all_official_outputs_equal":all(s["sanity"]["reference_equals_unified_traced"] for s in samples),"candidate_layers":list(CANDIDATE_LAYERS),"maturity_epsilon":MATURITY_EPSILON,"maturity_bins":[{k:v for k,v in b.items() if k!="records"} for b in bins],"overall":overall,"by_maturity_bin":binned,"continuous_associations":associations,"reversibility":reversal,"cohort_diagnostics":cohort_diagnostics,"representative_latent_layer":representative,"state_preferences":preferences,"final_correct_samples":correct,"scientific_answers":answers,"decision":decision,"environment":environment}
     (PROJECT/"results/unified_latent_state_probe_summary.json").write_text(json.dumps(summary,indent=2)+"\n")
-    lines=["UNIFIED LAYER × ENTROPY × STATE PROBE","="*39,"",f"DECISION: {decision['code']}. {decision['title']}",f"Samples: 200, observations: {len(records)}, trajectory parity: {summary['all_official_outputs_equal']}",f"Candidate layers: {list(CANDIDATE_LAYERS)}; maturity bins: {N_BINS}; epsilon: {MATURITY_EPSILON}","", "SCIENTIFIC QUESTIONS",json.dumps(answers,indent=2),"","OVERALL LAYER RESULTS",json.dumps(overall,indent=2),"","MATURITY BINS",json.dumps(summary["maturity_bins"],indent=2),"","LAYER × MATURITY",json.dumps(binned,indent=2),"","CONTINUOUS ASSOCIATIONS",json.dumps(associations,indent=2),"","MASK/LATENT/HARD PREFERENCES",json.dumps(preferences,indent=2),"","HARD SEMANTIC STRATIFICATION",json.dumps(overall["hard"],indent=2),"","TEMPORAL REVERSIBILITY",json.dumps(reversal,indent=2),"","ENVIRONMENT",json.dumps(environment,indent=2)]
+    lines=["UNIFIED LAYER × ENTROPY × STATE PROBE","="*39,"",f"DECISION: {decision['code']}. {decision['title']}",f"Samples: 200, observations: {len(records)}, trajectory parity: {summary['all_official_outputs_equal']}",f"Candidate layers: {list(CANDIDATE_LAYERS)}; maturity bins: {N_BINS}; epsilon: {MATURITY_EPSILON}","","COHORT AND INFERENCE DIAGNOSTICS",json.dumps(cohort_diagnostics,indent=2),"", "SCIENTIFIC QUESTIONS",json.dumps(answers,indent=2),"","OVERALL LAYER RESULTS",json.dumps(overall,indent=2),"","MATURITY BINS",json.dumps(summary["maturity_bins"],indent=2),"","LAYER × MATURITY",json.dumps(binned,indent=2),"","CONTINUOUS ASSOCIATIONS",json.dumps(associations,indent=2),"","MASK/LATENT/HARD PREFERENCES",json.dumps(preferences,indent=2),"","HARD SEMANTIC STRATIFICATION",json.dumps(overall["hard"],indent=2),"","TEMPORAL REVERSIBILITY",json.dumps(reversal,indent=2),"","ENVIRONMENT",json.dumps(environment,indent=2)]
     (PROJECT/"results/report_unified_latent_state_probe.txt").write_text("\n".join(lines)+"\n");make_figures(overall,binned,preferences,representative)
 
 

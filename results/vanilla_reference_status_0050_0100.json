@@ -1,0 +1,334 @@
+{
+  "start": 50,
+  "count": 50,
+  "completed": 50,
+  "all_passed": true,
+  "reference_fingerprint": "0a6e2f3c5c1c8875832239479a989438e2f131f7ee5afca6b2e2622cdeed851d",
+  "config": {
+    "model_id": "GSAI-ML/LLaDA-8B-Instruct",
+    "model_revision": "08b83a6feb34df1a6011b80c3c00c7563e963b07",
+    "dataset_id": "gsm8k",
+    "dataset_revision": "740312add88f781978c0658806c59bc2815b9866",
+    "dataset_config": "main",
+    "split": "test",
+    "samples": 200,
+    "steps": 128,
+    "gen_length": 256,
+    "block_length": 32,
+    "temperature": 0.0,
+    "cfg_scale": 0.0,
+    "remasking": "low_confidence",
+    "mask_id": 126336,
+    "history": 4,
+    "alpha": 0.25,
+    "n_mask": 4,
+    "progress_fractions": [
+      0.25,
+      0.5,
+      0.75
+    ],
+    "seed": 20260827
+  },
+  "samples": [
+    {
+      "sample_id": 50,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 51,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 52,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 53,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 54,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 55,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 56,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 57,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 58,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 59,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 60,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 61,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 62,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 63,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 64,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 65,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 66,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 67,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 68,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 69,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 70,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 71,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 72,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 73,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 74,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 75,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 76,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 77,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 78,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 79,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 80,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 81,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 82,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 83,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 84,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 85,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 86,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 87,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 88,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 89,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 90,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 91,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 92,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 93,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 94,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 95,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 96,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 97,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 98,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    },
+    {
+      "sample_id": 99,
+      "passed": true,
+      "generated_tokens": 256,
+      "no_unresolved_mask": true
+    }
+  ]
+}
